@@ -1,0 +1,34 @@
+//index
+	df.style.hide_index()
+	df.set_index('col_name')
+//caption
+	df.style.set_caption('caption')
+
+
+//groupby
+	df.groupby('col_name')...
+	df.groupby('col_name1').col_name2...
+	df.groupby('col_name1')['col_name2', 'col_name3',...]...
+	df.groupby('col_name').get_group('value')
+//datetime
+	pd.to_datetime()
+	.dt.year		//get year
+
+//filtering
+	df.['col_name']='value'
+	df.['col_name'].str.contains('value')		//find string in string
+	df.col_name.isin(['value1', 'value2', 'value3',...])		//find 1 or more values in col
+
+//editing
+	.insert(index, 'new_col_name', new_col_value)
+	.rename(columns={'col_name' : 'new_col_name'}, inplace=)
+	.drop(['col_name1','col_name2'], inplace=)
+	.add_prefix('value_') 	//add string/name before all cols name
+	.add_suffix('_value') 	//add string/name after all cols name
+	.fillna(value, inplace)		//fill in to all null value
+	.apply(func, axis=1,0)
+	.apply(lambda func if x.name in ['row_name',''] else x, axis=1)
+	.apply(lambda func if x.name in ['col_name',''] else x, axis=0)
+	.apply(lambda func if func else x, axis=1,0)
+	.map({'value':'new_value'})
+	.loc['new_row']
